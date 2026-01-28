@@ -11,7 +11,7 @@
   
   **A comprehensive Flutter-based attendance management system with dual authentication, offline sync, dark mode, and automated email alerts.**
   
-  [Features](#-features) • [Screenshots](#-screenshots) • [Installation](#-installation) • [Usage](#-usage) • [Contributing](#-contributing)
+  [Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Contributing](#-contributing)
   
 </div>
 
