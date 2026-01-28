@@ -120,34 +120,6 @@
 
 ---
 
-## 📸 Screenshots
-
-<div align="center">
-
-### Light & Dark Mode
-<p>
-  <img src="https://via.placeholder.com/250x500/FFFFFF/000000?text=Login+Screen" alt="Login Light" width="250"/>
-  <img src="https://via.placeholder.com/250x500/1E1E1E/FFFFFF?text=Login+Screen" alt="Login Dark" width="250"/>
-  <img src="https://via.placeholder.com/250x500/0088FF/FFFFFF?text=Dashboard" alt="Dashboard" width="250"/>
-</p>
-
-### Attendance & Reports
-<p>
-  <img src="https://via.placeholder.com/250x500/FFFFFF/000000?text=Mark+Attendance" alt="Attendance" width="250"/>
-  <img src="https://via.placeholder.com/250x500/FFFFFF/000000?text=Student+List" alt="Students" width="250"/>
-  <img src="https://via.placeholder.com/250x500/FFFFFF/000000?text=Excel+Report" alt="Reports" width="250"/>
-</p>
-
-### Email Alerts & Analytics
-<p>
-  <img src="https://via.placeholder.com/250x500/FFFFFF/000000?text=Email+Alerts" alt="Emails" width="250"/>
-  <img src="https://via.placeholder.com/250x500/FFFFFF/000000?text=Analytics" alt="Analytics" width="250"/>
-  <img src="https://via.placeholder.com/250x500/FFFFFF/000000?text=Settings" alt="Settings" width="250"/>
-</p>
-
-</div>
-
----
 
 ## � Tech Stack
 
