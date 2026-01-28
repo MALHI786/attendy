@@ -1,387 +1,319 @@
-# Attendy - Smart Attendance Management App
+# 🎓 Attendy - Smart Attendance Management System
 
-A comprehensive Flutter-based attendance management system for educational institutions, featuring dual authentication (Teacher/Student), email verification, Excel reporting, and Firebase integration.
+![Flutter](https://img.shields.io/badge/Flutter-3.16.0-blue)
+![Dart](https://img.shields.io/badge/Dart-3.2.0-blue)
+![Firebase](https://img.shields.io/badge/Firebase-11.3.3-orange)
+![License](https://img.shields.io/badge/License-MIT-green)
 
----
+<div align="center">
+  
+  ![Attendy Banner](https://via.placeholder.com/800x200/0088FF/FFFFFF?text=Attendy+Smart+Attendance+Management)
+  
+  **A comprehensive Flutter-based attendance management system with dual authentication, offline sync, dark mode, and automated email alerts.**
+  
+  [Features](#-features) • [Screenshots](#-screenshots) • [Installation](#-installation) • [Usage](#-usage) • [Contributing](#-contributing)
+  
+</div>
 
-## 🚀 Features
+## ✨ Enhanced Features
 
-### Authentication & Security
-- **Dual Login System**: Separate authentication flows for Teachers (CNIC-based) and Students (Roll Number-based)
-- **Email Verification**: 6-digit OTP verification for account security
-- **Password Reset**: Secure password recovery via email verification
-- **SHA-256 Encryption**: Secure password hashing for user protection
+### ✅ Core Features
+- **👥 Dual Authentication**: Separate login for Teachers (CNIC-based) and Students (Roll Number-based)
+- **📧 Email Verification**: 6-digit OTP system for secure account activation
+- **🔒 SHA-256 Encryption**: Industry-standard password hashing
+- **📊 Excel Export**: Professional Excel reports with formatting
+- **📅 Past Date Support**: Mark attendance for any date
+- **🔍 Quick Search**: Instant student/subject search functionality
 
-### Attendance Management
-- **Smart Attendance Marking**: Mark attendance with present/absent buttons
-- **Past Date Support**: Ability to mark attendance for previous dates
-- **Quick Actions**: Mark all present/absent with one tap
-- **Real-time Updates**: Instant sync with Firebase Realtime Database
-- **Attendance History**: View complete attendance records per subject
+### ✨ Newly Added Features
+- **🌙 Dark Mode**: Complete dark theme with system preference detection
+- **📱 Offline Sync**: Local SQLite database with automatic cloud synchronization
+- **📧 Email Alerts**: Automated notifications for low-attendance students
+- **🎨 Enhanced UI**: Beautiful gradient designs with smooth animations
+- **📊 Advanced Analytics**: Charts and graphs for attendance visualization
+- **⚡ Quick Actions**: Mark all present/absent with single tap
 
-### Student & Subject Management
-- **Duplicate Prevention**: Automatic validation to prevent duplicate students or subjects
-- **Search Functionality**: Quick search through student lists
-- **Semester Management**: Editable semester numbers from the dashboard
-- **Color-Coded Subjects**: Visual distinction between different subjects
+## 📸 Screenshots
 
-### Reports & Analytics
-- **Excel Export**: Generate downloadable Excel reports per subject
-- **Attendance Statistics**: View present/absent counts and percentages
-- **Styled Reports**: Professional Excel formatting with color-coded data
-- **Share & Download**: Easy sharing and downloading of reports
+| Light Mode | Dark Mode | Email Alerts |
+|------------|-----------|--------------|
+| ![Light](https://via.placeholder.com/200x400/FFFFFF/000000?text=Light+Mode) | ![Dark](https://via.placeholder.com/200x400/1A1A1A/FFFFFF?text=Dark+Mode) | ![Email](https://via.placeholder.com/200x400/0088FF/FFFFFF?text=Email+Alerts) |
 
-### User Experience
-- **Material Design 3**: Modern, beautiful UI with gradient backgrounds
-- **Animated Splash Screen**: Smooth app entry with fade/scale animations
-- **Responsive Design**: Optimized for various screen sizes
-- **Session Management**: Persistent login using SharedPreferences
+| Dashboard | Attendance | Reports |
+|-----------|------------|---------|
+| ![Dashboard](https://via.placeholder.com/200x400/FFFFFF/000000?text=Dashboard) | ![Attendance](https://via.placeholder.com/200x400/FFFFFF/000000?text=Attendance) | ![Reports](https://via.placeholder.com/200x400/FFFFFF/000000?text=Reports) |
 
----
-
-## 📱 App Icon
-
-The app uses a modern, minimalist 3D icon with the following design specification:
-
-**Icon Prompt**: 
-```
-A high-quality, modern, minimalist 3D app icon for an attendance app named 'Attendy', 
-vibrant blue and white theme, soft shadows, 1024x1024 PNG, white background
-```
-
-**Design Elements**:
-- Vibrant blue primary color representing professionalism and trust
-- White accents for clarity and simplicity
-- 3D effect with soft shadows for modern aesthetic
-- Minimalist design for easy recognition
-- Standard 1024x1024 PNG format for cross-platform compatibility
-
-**To Generate the Icon**:
-1. Use AI image generators (DALL-E, Midjourney, Stable Diffusion) with the above prompt
-2. Or use design tools (Figma, Adobe Illustrator) for custom creation
-3. Place the generated icon in appropriate directories:
-   - Android: `android/app/src/main/res/mipmap-*/ic_launcher.png`
-   - iOS: `ios/Runner/Assets.xcassets/AppIcon.appiconset/`
-4. Use `flutter_launcher_icons` package for automated icon generation across all platforms
-
----
-
-## 🛠️ Technology Stack
-
-### Frontend
-- **Flutter SDK**: ^3.10.7
-- **Dart**: Language for Flutter development
-- **Material Design 3**: Modern UI components
-
-### Backend & Database
-- **Firebase Realtime Database**: Real-time data synchronization
-- **Firebase Authentication**: User authentication services
-- **Firebase Core**: Firebase SDK integration
-
-### Key Packages
-- `firebase_core`: ^3.8.1 - Firebase initialization
-- `firebase_database`: ^11.3.3 - Realtime database
-- `firebase_auth`: ^5.3.4 - Authentication
-- `excel`: ^4.0.6 - Excel file generation
-- `path_provider`: ^2.1.5 - File system access
-- `share_plus`: ^10.1.4 - File sharing functionality
-- `open_filex`: ^4.5.0 - Open files in external apps
-- `crypto`: ^3.0.6 - Password hashing (SHA-256)
-- `shared_preferences`: ^2.3.3 - Local data persistence
-- `intl`: ^0.19.0 - Date formatting
-
----
-
-## 📁 Project Structure
-
-```
-lib/
-├── main.dart                          # App entry point with splash screen
-├── firebase_options.dart              # Firebase configuration
-├── models/
-│   ├── student.dart                   # Student data model
-│   ├── subject.dart                   # Subject data model
-│   └── teacher.dart                   # Teacher data model
-├── screens/
-│   ├── user_type_screen.dart          # Student/Teacher selection
-│   ├── student_login_screen.dart      # Student authentication
-│   ├── teacher_login_screen.dart      # Teacher authentication
-│   ├── email_verification_screen.dart # OTP verification
-│   ├── forgot_password_screen.dart    # Password recovery
-│   ├── dashboard_screen.dart          # Main dashboard
-│   ├── student_management_screen.dart # Manage students
-│   ├── subject_management_screen.dart # Manage subjects
-│   ├── attendance_screen.dart         # Mark attendance
-│   └── view_reports_screen.dart       # View and export reports
-├── services/
-│   ├── firebase_service.dart          # Firebase CRUD operations
-│   ├── excel_service.dart             # Excel report generation
-│   └── auth_service.dart              # Email verification service
-└── utils/
-    └── validators.dart                # Form validation functions
-```
-
----
-
-## 🚦 Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
-- Flutter SDK (^3.10.7)
-- Dart SDK
+- Flutter SDK (>= 3.16.0)
+- Dart SDK (>= 3.2.0)
+- Firebase account
 - Android Studio / VS Code
-- Firebase account with a configured project
-- Android device or emulator
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/yourusername/attendy.git
    cd attendy
-   ```
+Install dependencies
 
-2. **Install dependencies**
-   ```bash
-   flutter pub get
-   ```
+bash
+flutter pub get
+Configure Firebase
 
-3. **Configure Firebase**
-   - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)
-   - Add Android app to your Firebase project
-   - Download `google-services.json` and place it in `android/app/`
-   - Enable Firebase Realtime Database and Authentication
-   - Update `lib/firebase_options.dart` with your Firebase configuration
+Create project at Firebase Console
 
-4. **Run the app**
-   ```bash
-   flutter run
-   ```
+Add Android/iOS app
 
----
+Download config files:
 
-## 📖 User Guide
+Android: google-services.json → android/app/
 
-### For Teachers
+iOS: GoogleService-Info.plist → ios/Runner/
 
-1. **First-Time Setup**
-   - Select "Teacher" on the user type screen
-   - Enter your CNIC (format: xxxxx-xxxxxxx-x), name, and email
-   - Verify your email with the 6-digit code sent to your inbox
-   - Set a strong password
+Enable Authentication & Realtime Database
 
-2. **Managing Students**
-   - From dashboard, tap "Student Management"
-   - Add students with roll numbers and emails
-   - Search for specific students using the search bar
-   - System prevents duplicate roll numbers
+Set up Cloud Functions for email alerts
 
-3. **Managing Subjects**
-   - Tap "Subject Management" from dashboard
-   - Add subjects with names and credit hours
-   - View attendance count for each subject
-   - System prevents duplicate subject names
+Run the app
 
-4. **Marking Attendance**
-   - Select "Mark Attendance" from dashboard
-   - Choose subject and date (including past dates)
-   - Use quick actions or mark individually
-   - Tap "Save Attendance" to sync with database
+bash
+flutter run
+📱 Features in Detail
+🌙 Dark Mode
+Automatic system theme detection
 
-5. **Viewing Reports**
-   - Navigate to "View Reports"
-   - Select a subject to generate Excel report
-   - Download or share the report
-   - Reports include attendance percentages and statistics
+Manual toggle option
 
-### For Students
+Consistent theming across all screens
 
-1. **Login**
-   - Select "Student" on user type screen
-   - Enter your roll number
-   - For first-time login, provide email and password
-   - Verify your email
+Smooth transition animations
 
-2. **View Your Data**
-   - Access dashboard to see attendance statistics
-   - Check attendance records by subject
-   - View your semester information
+📱 Offline Mode
+Local Storage: SQLite database for offline operations
 
----
+Auto-Sync: Automatic synchronization when back online
 
-## 🔐 Security Features
+Conflict Resolution: Smart merge strategies for data conflicts
 
-- **Password Hashing**: SHA-256 encryption for all passwords
-- **Email Verification**: Mandatory email verification for account activation
-- **OTP Expiration**: Verification codes expire after 10 minutes
-- **Duplicate Prevention**: Database-level validation against duplicates
-- **Session Management**: Secure session handling with SharedPreferences
-- **Firebase Security Rules**: Recommended rules for database protection
+Progress Tracking: Visual indicators for sync status
 
-### Recommended Firebase Rules
+📧 Email Alerts System
+Automatic Detection: Identifies students below attendance threshold (default: 75%)
 
-```json
+Batch Processing: Send emails to multiple students simultaneously
+
+Custom Templates: Professional email templates
+
+Email History: Track all sent communications
+
+Manual Override: Select specific students for alerts
+
+📊 Advanced Analytics
+Visual Charts: Pie and bar charts for attendance patterns
+
+Statistics: Present/Absent counts with percentages
+
+Trend Analysis: Attendance trends over time
+
+Export Options: Excel, PDF, and CSV formats
+
+🏗️ Architecture
+text
+lib/
+├── models/          # Data models (Student, Subject, Attendance)
+├── screens/         # UI Screens
+├── services/        # Business logic (Firebase, Email, Offline)
+├── utils/           # Utilities & Constants
+└── widgets/         # Reusable UI components
+🔧 Configuration
+Firebase Setup
+Realtime Database Rules:
+
+json
 {
   "rules": {
-    "users": {
-      "$userId": {
-        ".read": "$userId === auth.uid",
-        ".write": "$userId === auth.uid"
-      }
-    },
-    "students": {
-      ".read": "auth != null",
-      ".write": "auth != null"
-    },
-    "subjects": {
-      ".read": "auth != null",
-      ".write": "auth != null"
-    },
-    "attendance": {
-      ".read": "auth != null",
-      ".write": "auth != null"
-    }
+    ".read": "auth != null",
+    ".write": "auth != null"
   }
 }
-```
+Cloud Functions (for email alerts):
 
----
+javascript
+exports.sendAttendanceAlert = functions.firestore
+  .document('attendance/{docId}')
+  .onUpdate(async (change, context) => {
+    // Email sending logic
+  });
+App Configuration
+Edit lib/utils/constants.dart:
 
-## 🎨 Customization
+dart
+class AppConstants {
+  static const double attendanceThreshold = 75.0;
+  static const String appName = 'Attendy';
+  static const String supportEmail = 'salmanmalhig@gmail.com';
+  // ... other constants
+}
+📖 Usage Guide
+For Teachers
+Register: CNIC, Name, Email, Password
 
-### Theme Colors
-Update colors in `main.dart`:
-```dart
-colorScheme: ColorScheme.fromSeed(
-  seedColor: Colors.blue,  // Change primary color
-  brightness: Brightness.light,
-),
-```
+Verify Email: 6-digit OTP verification
 
-### App Name
-Update in:
-- `android/app/src/main/AndroidManifest.xml` - android:label
-- `ios/Runner/Info.plist` - CFBundleName
+Add Students: Roll numbers and emails
 
-### Firebase Configuration
-Update `lib/firebase_options.dart` with your project credentials
+Create Subjects: Name and credit hours
 
----
+Mark Attendance: Daily or past dates
 
-## 🐛 Troubleshooting
+Send Alerts: Email low-attendance students
 
-### Build Issues
-```bash
+Generate Reports: Excel export with analytics
+
+For Students
+Login: Roll number and password
+
+View Attendance: Subject-wise statistics
+
+Check Progress: Attendance percentage
+
+Receive Alerts: Email notifications
+
+🔐 Security Features
+SHA-256 password hashing
+
+Email verification for all accounts
+
+Session management with secure tokens
+
+Firebase Security Rules implementation
+
+Data validation at multiple levels
+
+📦 Dependencies
+Key packages used:
+
+Package	Version	Purpose
+firebase_core	^3.8.1	Firebase initialization
+firebase_auth	^5.3.4	Authentication
+sqflite	^2.3.3+1	Offline database
+provider	^6.1.1	State management
+syncfusion_flutter_charts	^25.1.43	Data visualization
+flutter_email_sender	^6.2.1	Email alerts
+See full pubspec.yaml for complete list
+
+🚀 Deployment
+Android
+bash
+flutter build apk --release
+# or
+flutter build appbundle --release
+iOS
+bash
+flutter build ios --release
+🤝 Contributing
+We love contributions! Here's how:
+
+Fork the repository
+
+Create your feature branch (git checkout -b feature/AmazingFeature)
+
+Commit your changes (git commit -m 'Add some AmazingFeature')
+
+Push to the branch (git push origin feature/AmazingFeature)
+
+Open a Pull Request
+
+Development Guidelines
+Follow Dart/Flutter style guide
+
+Add comments for complex logic
+
+Write tests for new features
+
+Update documentation accordingly
+
+🐛 Troubleshooting
+Common Issues
+Firebase connection failed
+
+Verify google-services.json placement
+
+Check internet connection
+
+Confirm Firebase project settings
+
+Build errors
+
+bash
 flutter clean
 flutter pub get
 flutter run
-```
+Email not sending
 
-### Firebase Connection Issues
-- Verify `google-services.json` is in correct location
-- Check Firebase project settings
-- Ensure Firebase Database is in "Locked mode" or has appropriate rules
+Check Cloud Functions deployment
 
-### Dependency Conflicts
-```bash
+Verify SMTP configuration
+
+Check email quota limits
+
+Debug Commands
+bash
+# Check dependencies
 flutter pub outdated
-flutter pub upgrade
-```
 
----
+# Analyze code
+flutter analyze
 
-## 📊 Database Structure
+# Run tests
+flutter test
 
-```
-Firebase Realtime Database
-├── users/
-│   └── {crRollNumber}/
-│       ├── userType: "teacher" | "student"
-│       ├── cnic: string (teachers only)
-│       ├── name: string
-│       ├── email: string
-│       ├── password: string (hashed)
-│       ├── emailVerified: boolean
-│       └── semester: number
-├── students/
-│   └── {crRollNumber}/
-│       └── {studentId}/
-│           ├── rollNumber: string
-│           ├── email: string
-│           └── createdAt: timestamp
-├── subjects/
-│   └── {crRollNumber}/
-│       └── {subjectId}/
-│           ├── name: string
-│           ├── creditHours: number
-│           └── createdAt: timestamp
-└── attendance/
-    └── {crRollNumber}/
-        └── {subjectId}/
-            └── {date}/
-                └── {studentId}: boolean
-```
+# Generate build report
+flutter build apk --analyze-size
+📄 License
+Distributed under MIT License. See LICENSE for more information.
 
----
+📞 Contact & Support
+Developer: Salman Malhi
 
-## 🤖 AI Features (Future Enhancements)
+Email: salmanmalhig@gmail.com
 
-See [AI_FEATURES.md](AI_FEATURES.md) for detailed documentation on potential AI integrations including:
-- Predictive attendance analytics
-- Face recognition attendance
-- Smart notifications
-- Anomaly detection
-- AI chatbot assistant
-- And much more...
+Instagram: @m_salman_malhi
 
----
+WhatsApp: +92 342 5844921
 
-## 📝 License
+Issue Tracker: GitHub Issues
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+🙏 Acknowledgments
+Flutter team for the amazing framework
 
----
+Firebase for backend services
 
-## 🙏 Acknowledgments
+Material Design for UI inspiration
 
-- Flutter team for the amazing framework
-- Firebase for backend infrastructure
-- Material Design for UI guidelines
-- Community packages that made this possible
+All contributors and testers
 
----
+🔮 Roadmap
+Face recognition attendance
 
-## 📞 Support
+Push notifications
 
-For issues, questions, or contributions:
-- Open an issue on GitHub
-- Email: support@attendy.com
+Multi-language support
 
----
+Parent portal
 
-## 🔄 Version History
+Mobile app for parents
 
-### v1.0.0 (Current)
-- Initial release
-- Dual authentication system
-- Attendance management
-- Excel report generation
-- Email verification
-- Password recovery
-- Past date attendance support
+AI-powered predictions
 
----
+Integration with LMS systems
 
-## 🚀 Future Roadmap
+<div align="center">
+Made with ❤️ by Salman Malhi
 
-- [ ] Multi-language support
-- [ ] Dark mode
-- [ ] Offline mode with sync
-- [ ] Push notifications
-- [ ] AI-powered features (see AI_FEATURES.md)
-- [ ] iOS support improvements
-- [ ] Web version
-- [ ] Desktop applications
+⭐ Star this repo on GitHub
 
----
-
-**Made with ❤️ using Flutter**
+</div>
