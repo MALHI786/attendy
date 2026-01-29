@@ -6,6 +6,7 @@ import 'subject_management_screen.dart';
 import 'attendance_screen.dart';
 import 'view_reports_screen.dart';
 import 'user_type_screen.dart';
+import 'whatsapp_absentee_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   final String userIdentifier;
@@ -352,6 +353,23 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 );
                               },
                               subtitle: 'Coming Soon',
+                            ),
+                            _buildMenuCard(
+                              context,
+                              'WhatsApp Share',
+                              Icons.message_rounded,
+                              Colors.green,
+                              () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => WhatsAppAbsenteeScreen(
+                                      crRollNumber: widget.userIdentifier,
+                                    ),
+                                  ),
+                                );
+                              },
+                              subtitle: 'Share Absentees',
                             ),
                             _buildMenuCard(
                               context,

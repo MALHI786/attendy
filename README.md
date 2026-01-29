@@ -100,6 +100,13 @@
 - **Email History Tracking**
 - **Manual Email Override**
 
+### 📱 WhatsApp Sharing
+- **Share Absentees** directly to WhatsApp
+- **Select Subject & Date** to fetch absentees
+- **Custom Message Header** for personalization
+- **Direct Phone Number** or choose contact
+- **Formatted Message** with roll numbers
+
 ### 🎨 User Experience
 - **🌙 Dark Mode** with system sync
 - **📱 Responsive Design**
@@ -465,6 +472,34 @@ flutter run -d <device-id>
 3. **Track Email History**
    - View sent emails in history
    - Check delivery status
+
+</details>
+
+<details>
+<summary><b>Sharing Absentees via WhatsApp</b></summary>
+
+1. **Open WhatsApp Share**
+   - Go to **Dashboard** → **WhatsApp Share**
+
+2. **Select Subject & Date**
+   - Choose the subject from dropdown
+   - Select the date for which you want absentees
+   - Optionally add a custom message header
+
+3. **Fetch Absentees**
+   - Click **Fetch Absentees** button
+   - View the list of absent students
+
+4. **Share to WhatsApp**
+   - Click **Share to WhatsApp**
+   - Preview the formatted message
+   - Optionally enter a phone number
+   - Click **Send** to open WhatsApp with message
+
+5. **Send the Message**
+   - WhatsApp opens with pre-filled message
+   - Choose contact or group to send
+   - Message includes: Subject, Date, Roll Numbers
 
 </details>
 
